@@ -3,12 +3,11 @@ import './App.css';
 import { 
   Flex 
 } from '@chakra-ui/react';
+import SidebarDesktop from './Components/Sidebar/desktopSidebar';
 
 function App() {
   return (
-    <Flex>
-      fdsdfsd
-    </Flex>
+    <SidebarDesktop />
   );
 }
 
