@@ -6,14 +6,17 @@ import {
     Tab,
 } from "@chakra-ui/react";
 import React from "react";
+import "../../Css/DesktopSidebar.css"
 import icon from "../../Images/App Icon.svg"
-import HomeIcon from "../../Images/Icons/Home Icon.svg"
+import { Home } from "@styled-icons/fluentui-system-filled/Home"
+import { BrokenImage } from "@styled-icons/material-rounded/BrokenImage"
 
 
 class SidebarDesktop extends React.Component {
 
     constructor() {
         super()
+        this.router = "use"
     }
 
     render() {
@@ -26,11 +29,16 @@ class SidebarDesktop extends React.Component {
             direction="column"
             alignItems={"center"}>
                 <Image src={icon} w={"36px"} pt={2} />
-                <Tabs w={"100%"} orientation="vertical" variant={"unstyled"} >
-                    <TabList>
-                        <Tab><Image src={HomeIcon} backgroundColor="transparent" /></Tab>
-                        <Tab>ffghfg</Tab>
-                        <Tab>fghsf</Tab>
+                <Tabs w={"100%"} orientation="vertical" variant={"unstyled"} color="#BCBCBC" mt={"20vh"}>
+                    <TabList width={"100%"}>
+                        <Tab className="sidebar-tabs"
+                        onClick={(e) => {
+
+                        }}><Home /></Tab>
+                        <Tab className="sidebar-tabs"><BrokenImage /></Tab>
+                        <Tab className="sidebar-tabs"><BrokenImage /></Tab>
+                        <Tab className="sidebar-tabs"><BrokenImage /></Tab>
+                        <Tab className="sidebar-tabs"><BrokenImage /></Tab>
                     </TabList>
                 </Tabs>
             </Flex>

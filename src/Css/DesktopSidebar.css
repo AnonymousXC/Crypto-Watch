@@ -1,0 +1,13 @@
+[aria-selected="true"] > svg {
+    color: white;
+    transform: scale(1.2);
+}
+
+.sidebar-tabs {
+    transition: all 200ms;
+}
+
+
+.sidebar-tabs:hover {
+    color: #fff;
+}
