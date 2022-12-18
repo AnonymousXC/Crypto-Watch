@@ -1,7 +1,7 @@
 {
 	"image": "mcr.microsoft.com/devcontainers/universal:2",
 	"hostRequirements": {
-	  "cpus": 2
+	  "cpus": 4
 	},
 	"waitFor": "onCreateCommand",
 	"updateContentCommand": "npm install",
@@ -17,10 +17,10 @@
 	  }
 	},
 	"portsAttributes": {
-	  "3000": {
-		"label": "Application",
-		"onAutoForward": "openPreview"
-	  }
+		"3000": {
+			"label": "Live Server",
+			"onAutoForward": "openPreview"
+		}
 	},
 	"forwardPorts": [3000]
   }
