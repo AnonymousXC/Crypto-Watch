@@ -9,6 +9,7 @@ class DesktopTopBar extends React.Component {
     render() {
         return (
             <Flex
+            justifyContent={'space-between'}
             w={'calc(100% - 64px)'}
             h={'68px'}
             position="absolute"

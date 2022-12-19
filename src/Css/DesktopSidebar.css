@@ -1,13 +1,19 @@
+* {
+    --tab-hg-color: #BDC0C9;
+}
+
+
 [aria-selected="true"] > svg {
-    color: white;
+    color: var(--tab-hg-color);
     transform: scale(1.2);
 }
 
 .sidebar-tabs {
     transition: all 200ms;
+    color: #303241;
 }
 
 
 .sidebar-tabs:hover {
-    color: #fff;
+    color: var(--tab-hg-color);
 }

@@ -14,12 +14,14 @@ class SearchBar extends React.Component {
             mt={'16px'} mx={'16px'} 
             maxW={"50%"} minW={"40%"}
             height='40px'
+            rounded={'12px'}
             backgroundColor='#171822'>
                 <InputGroup>
                     <InputLeftElement children={<SearchOutline color='#A6A9B3' size={'27px'} />}/>
                     <Input 
                     color={"var(--tri-text-color)"} 
                     fontSize="16px"
+                    rounded={'12px'}
                     variant={"outline"}
                     borderColor='#303241'
                     placeholder="Search market" />
