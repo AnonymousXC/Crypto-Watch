@@ -5,6 +5,7 @@ import {
     Text,
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
+import { TriangleRight } from '@styled-icons/octicons/TriangleRight'
 
 
 
@@ -15,25 +16,29 @@ function CoinCard({coinName, icon}) {
     const fontColor = useColorModeValue('#312A64', '#fff')
     const $Color = useColorModeValue('#9B96B6', '#303241')
     const [ price, setPrice ] = useState('Loading')
+    const [ pcpercent, setpcpercent ] = useState(0)
 
     useEffect(() => {
 
         let coin;
-        if(coinName === 'BNB')
-            coin = 'binance-coin'
-        else if(coinName === 'Sushi')
-            coin = 'waves'
+        if(coinName === 'Bitcoin')
+            coin = '90'
+        else if(coinName === 'ETH')
+            coin = '80'
+        else if(coinName === 'BNB')
+            coin = '2710'
         else
-            coin = coinName.toLowerCase()
+            coin = '1'
 
         setInterval(() => {
             getCoinPrice(coin)
             .then(data => {
-                setPrice(Number(data.rateUsd).toFixed(2))
+                setPrice(Number(data.price_usd).toFixed(2))
+                setpcpercent(data.percent_change_24h)
             })
         }, 3000)
         
-    }, [])
+    }, [coinName])
 
     return (
         <Flex 
@@ -48,10 +53,15 @@ function CoinCard({coinName, icon}) {
             <Flex
             mt={'16px'}
             ml={'12px'}
-            h={'24px'}
-            gap={'8px'}>
-                <Image src={icon} w={'24px'} />
+            h={'24px'}>
+                <Image src={icon} w={'24px'} mr={'8px'} />
                 {coinName} (24h)
+                <Flex 
+                alignItems={'flex-start'}
+                color={pcpercent > 0 ? '#22D49F' : '#FF5B6D'}>
+                    <TriangleRight width={'20px'} className='triangle-svg' /> 
+                    <Text fontSize={'10px'} className='ppcpercent-text'>{pcpercent > 0 ? '+' + pcpercent : pcpercent}</Text>
+                </Flex>
             </Flex>
             <Flex
             mt={'8px'}
@@ -65,9 +75,9 @@ function CoinCard({coinName, icon}) {
 
 
 async function getCoinPrice(coin) {
-    const quered = await fetch(`https://api.coincap.io/v2/rates/${coin}`)
+    const quered = await fetch(`https://api.coinlore.net/api/ticker/?id=${coin}`)
     const data = await quered.json()
-    return data.data;
+    return data[0];
 }
 
 export default CoinCard;
